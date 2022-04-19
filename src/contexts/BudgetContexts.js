@@ -24,7 +24,7 @@ export const BudgetProvider = ({ children }) =>{
     function addExpress({description, amount, budgetId}){
         setExpenses(prevExpenses =>{
             
-            return [... prevExpenses, {id:uuidV4(), description, amount, budgetId}]
+            return [...prevExpenses, {id:uuidV4(), description, amount, budgetId}]
         })
 
     }
@@ -34,10 +34,16 @@ export const BudgetProvider = ({ children }) =>{
             if(prevBudgets.find(budget => budget.name === name)){
                 return prevBudgets
             }
-            return [... prevBudgets, {id:uuidV4(), name, max}]
+            return [...prevBudgets, {id:uuidV4(), name, max}]
         })
     }
     function deleteBudget({id}){
+        setExpenses(prevExpenses =>{
+            return prevExpenses.map(expense =>{
+                if(expense.budgetId !== id) return expense
+                return {...expense, budgetId: UNCATAGORIZED_BUDGET_ID}
+            })
+        })
         setBudgets(prevBudgets => {
             return prevBudgets.filter(budget => budget.id !== id)
         })
