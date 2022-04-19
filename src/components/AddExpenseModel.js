@@ -14,7 +14,7 @@ export default function AddExpenseModel({ show, handleClose, defaultBudgetId }) 
         e.preventDefault()
         addExpense(
         {
-            descriptionRef: descriptionRef.current.value,
+            description: descriptionRef.current.value,
             amount: parseFloat(amountRef.current.value),
             budgetId: budgetIdRef.current.value,
         })
