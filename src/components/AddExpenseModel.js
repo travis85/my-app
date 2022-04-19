@@ -1,6 +1,6 @@
 import { Button, Form, Modal } from 'react-bootstrap'
 import { useRef } from 'react'
-import { useBudgets, UNCATAGORIZED_BUDGET_ID } from '../contexts/BudgetContexts'
+import { useBudgets, UNCATEGORIZED_BUDGET_ID } from '../contexts/BudgetContexts'
 
 
 export default function AddExpenseModel({ show, handleClose, defaultBudgetId }) {
@@ -29,7 +29,7 @@ export default function AddExpenseModel({ show, handleClose, defaultBudgetId }) 
             </Modal.Header>
             <Modal.Body>
                 <Form.Group className='mb-3' controlId='description'>
-                    <Form.Label>description</Form.Label>
+                    <Form.Label>Description</Form.Label>
                     <Form.Control ref={descriptionRef} type="text" required />
                 </Form.Group>
                 <Form.Group className='mb-3' controlId='amount'>
@@ -39,10 +39,11 @@ export default function AddExpenseModel({ show, handleClose, defaultBudgetId }) 
                 <Form.Group className='mb-3' controlId='budgetId'>
                     <Form.Label>Budget</Form.Label>
                     <Form.Select defaultValue={defaultBudgetId} ref={budgetIdRef}>
-                        <option id={UNCATAGORIZED_BUDGET_ID}>Uncatagorized</option>
-
+                        <option id={UNCATEGORIZED_BUDGET_ID}>Uncatagorized</option>
                             {budgets.map(budget => (
-                                <option key={budget.id} value={budget.id}>{budget.name}</option>
+                                <option key={budget.id} value={budget.id}>
+                                    {budget.name}
+                                </option>
                             ))}
                      </Form.Select>
                      
