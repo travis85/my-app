@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { v4 as uuidV4 } from 'uuid'
 import useLocalStorage from "../hooks/useLocalStorage"
 
 
 
-const BudgetContexts = React.createContext()
+const BudgetsContext = React.createContext()
 
-export const UNCATAGORIZED_BUDGET_ID = 'uncatagorized'
+export const UNCATEGORIZED_BUDGET_ID = 'Uncategorized'
 
 export function useBudgets(){
-    return useContext(BudgetContexts)
+    return useContext(BudgetsContext)
 }
 
 export const BudgetProvider = ({ children }) =>{
@@ -21,8 +21,8 @@ export const BudgetProvider = ({ children }) =>{
         return expenses.filter(expense => expense.budgetId === budgetId)
     }
 
-    function addExpress({description, amount, budgetId}){
-        setExpenses(prevExpenses =>{
+    function addExpense({description, amount, budgetId}){
+        setExpenses(prevExpenses => {
             
             return [...prevExpenses, {id:uuidV4(), description, amount, budgetId}]
         })
@@ -34,14 +34,14 @@ export const BudgetProvider = ({ children }) =>{
             if(prevBudgets.find(budget => budget.name === name)){
                 return prevBudgets
             }
-            return [...prevBudgets, {id:uuidV4(), name, max}]
+            return [...prevBudgets, {id: uuidV4(), name, max}]
         })
     }
     function deleteBudget({id}){
         setExpenses(prevExpenses =>{
             return prevExpenses.map(expense =>{
                 if(expense.budgetId !== id) return expense
-                return {...expense, budgetId: UNCATAGORIZED_BUDGET_ID}
+                return {...expense, budgetId: UNCATEGORIZED_BUDGET_ID}
             })
         })
         setBudgets(prevBudgets => {
@@ -56,17 +56,18 @@ export const BudgetProvider = ({ children }) =>{
 
 
     return(
-    <BudgetContexts.Provider value={{
+    <BudgetsContext.Provider 
+        value={{
         budgets,
         expenses,
         getBudgetExpenses,
-        addExpress,
+        addExpense,
         addBudget,
         deleteBudget,
         deleteExpense
     }}>
         {children}
 
-    </BudgetContexts.Provider>
+    </BudgetsContext.Provider>
     )
 }
