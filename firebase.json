@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site":"budget-app-cd7b1",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

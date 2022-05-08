@@ -11,6 +11,20 @@
     
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Budget App</title>
+    <script>
+      import { initializeApp } from "firebase/app";
+      const firebaseConfig = {
+        apiKey: "AIzaSyASPEjdWQX4gxJ2UiAs7CPTTkiEmr2sDS0",
+        authDomain: "budgetapp-d4f31.firebaseapp.com",
+        projectId: "budgetapp-d4f31",
+        storageBucket: "budgetapp-d4f31.appspot.com",
+        messagingSenderId: "169842475623",
+        appId: "1:169842475623:web:4d82af35e1f43a54884ac2"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
