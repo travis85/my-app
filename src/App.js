@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import  { Stack, Button } from 'react-bootstrap'
+import './index.css';
+// import  { Stack, Button } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
 import AddBudgetModel from './components/AddBudgetModel';
 import AddExpenseModel from './components/AddExpenseModel';
@@ -25,13 +26,15 @@ function App() {
   }
   return (
     <>
-    <Container className='my-4'>
-      <Stack direction="horizontal" gap="2" className="mb-4">
-        <h1 className='me-auto'>Budgets</h1>
-        <Button variant='primary' onClick={() => setShowAddBudgetModal(true)}>Add Budget</Button>
-        <Button variant='outline-primary' onClick={openAddExpenseModal}>Add Expense</Button>
-      </Stack>
-      <div style={{display: 'grid',
+    <Container className= 'bg-gray-200 h-screen my-4 grid grid-cols-2'>
+      <div gap="2" className="m-4 ">
+        <div className='flex flex-row mb-4'>
+          <h1 className=' mb-8 text-2xl mr-4'>Budgets</h1><TotalBudgetCard />
+        </div>
+        <button className='rounded-md bg-gradient-to-r from-green-400 to-green-600 border border-solid border-sky-500 py-2 px-4 mr-2'  onClick={() => setShowAddBudgetModal(true)}>Add Budget</button>
+        <button className='rounded-md  bg-gradient-to-r from-red-400 to-red-600 to border border-solid border-sky-500 py-2 px-4' onClick={openAddExpenseModal}>Add Expense</button>
+      </div>
+      <div className='mt-4' style={{display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))',
             gap:'1rem',
             alignItems:'flex-start'}}>
@@ -50,7 +53,7 @@ function App() {
               )     
             })}
             <UncatgorizedBudgetCard onAddExpenseClick={openAddExpenseModal} onViewExpenseClick={() => setViewExpensesModalBudgetId(UNCATEGORIZED_BUDGET_ID)}/>
-            <TotalBudgetCard />
+            
       </div>
     </Container>
     <AddBudgetModel show={showAddBudgetModal} handleClose={() => setShowAddBudgetModal(false)}/>
