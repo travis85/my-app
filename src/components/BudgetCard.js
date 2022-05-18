@@ -12,7 +12,7 @@ function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, on
   return (
     <Card className={className.join(' ')}>
         <div className='py-2 px-4'>
-            <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal mb-3'>
+            <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal'>
                 <div className='me-2'>
                     {name}
                 </div>
@@ -29,7 +29,7 @@ function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, on
                 now={amount}
                 />}
             {!hideButtons && <Stack direction="horizontal" gap="2" className="mt-4">
-                <Button  className='ms-auto bg-gradient-to-r from-red-400 to-red-600 text-black' onClick={onAddExpenseClick}>Add Expense</Button>
+                <Button  className='ms-auto bg-gradient-to-r from-red-400 to-red-600 ' onClick={onAddExpenseClick}>Add Expense</Button>
                 <Button onClick={onViewExpenseClick} className='bg-gradient-to-r from-green-400 to-green-600'>View Expense</Button>
 
             </Stack>}
