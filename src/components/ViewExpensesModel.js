@@ -30,7 +30,8 @@ export default function ViewExpensesModel({ budgetId, handleClose }) {
                             <Button onClick={() =>deleteExpense(expense)} size='sm' variant='outline-danger'>&times;</Button>
                         </Stack>
                     ))}
-                </Stack>
+              </Stack>
+              
             </Modal.Body>
     </Modal>
   )

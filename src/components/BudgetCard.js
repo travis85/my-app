@@ -9,8 +9,8 @@ function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, on
     } else if(gray){
         className.push('bg-light')
     }
-  return (
-    <Card className={className.join(' ')}>
+    return (
+        <Card className={`${className.join(' ')} bg-gradient-to-r from-blue-100 to-blue-200`}>
         <div className='py-2 px-4'>
             <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal'>
                 <div className='me-2'>
@@ -19,7 +19,7 @@ function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, on
                 <div className='d-flex align-items-baseline'>
                     {currencyFormatter.format(amount)} 
                    {max && <span className='text-muted fs-6 ms-1'>
-                        / {currencyFormatter.format(max)}
+                         {currencyFormatter.format(max)}
                     </span>}
                 </div>
             </Card.Title>
@@ -28,11 +28,12 @@ function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, on
                 max={max}
                 now={amount}
                 />}
-            {!hideButtons && <Stack direction="horizontal" gap="2" className="mt-4">
-                <Button  className='ms-auto bg-gradient-to-r from-red-400 to-red-600 ' onClick={onAddExpenseClick}>Add Expense</Button>
-                <Button onClick={onViewExpenseClick} className='bg-gradient-to-r from-green-400 to-green-600'>View Expense</Button>
-
-            </Stack>}
+                {!hideButtons &&
+                    <Stack direction="horizontal" gap="2" className="mt-4">
+                        <Button  className='ms-auto bg-gradient-to-r from-red-400 to-red-600' onClick={onAddExpenseClick}> Expense</Button>
+                        <Button onClick={onViewExpenseClick} className='bg-gradient-to-r from-green-400 to-green-600'>View </Button>
+                    </Stack>
+                }
 
         </div>
     </Card>
