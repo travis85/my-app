@@ -32,8 +32,8 @@ function App() {
           <TotalBudgetCard />
         </div>
         <div className='flex'>
-          <button className='rounded-md bg-gradient-to-r from-green-400 to-green-600 border border-solid  py-2 px-4 mr-2 text-white'  onClick={() => setShowAddBudgetModal(true)}>Budget</button>
-          <button className='rounded-md  bg-gradient-to-r from-red-400 to-red-600 to border border-solid  py-2 px-4 text-white' onClick={openAddExpenseModal}>Expense</button>
+          <button className='rounded-md bg-gradient-to-r from-green-400 to-green-600 border border-solid  py-2 px-4 mr-2 text-white hover:opacity-75'  onClick={() => setShowAddBudgetModal(true)}>Budget</button>
+          <button className='rounded-md  bg-gradient-to-r from-red-400 to-red-600 to border border-solid  py-2 px-4 text-white hover:opacity-75' onClick={openAddExpenseModal}>Expense</button>
         </div>
       </div>
       <div className='grid border-4 border-indigo-200 border-x-blue-400 p-8 shadow-xl '>
@@ -50,6 +50,7 @@ function App() {
                   name={budget.name} 
                   amount={amount} 
                   max={budget.max}
+                  budgetId={budget.id}
                   onAddExpenseClick={() => openAddExpenseModal(budget.id)}
                   onViewExpenseClick={() => setViewExpensesModalBudgetId(budget.id)}
                 />

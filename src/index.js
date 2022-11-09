@@ -10,7 +10,6 @@ root.render(
   <React.StrictMode>
     <BudgetProvider>
       <App />
-
     </BudgetProvider>
   </React.StrictMode>
 );

@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import '../index.css'
 
 function SeventyTwentyTen() {
   const [show, setShow] = useState(false);
@@ -10,12 +10,14 @@ function SeventyTwentyTen() {
 
   return (
     <>
-      <Button  onClick={toggleShow}  className="bg-blue-600 hover:opacity-70">
-      <span className='text-red-500'>70</span>-<span className='text-yellow-500'>20</span>-<span className='text-green-500'>10</span> Rule
+      <Button  onClick={toggleShow}  className="bg-blue-600 w-36 mb-2 hover:opacity-70">
+        <span className='text-red-500'>70</span>-<span className='text-yellow-500'>20</span>-<span className='text-green-500'>10</span> Rule
       </Button>
+
+
      
-        <Offcanvas show={show} onHide={handleClose} scroll={true} backdrop={true} className=''>
-        <Offcanvas.Header closeButton className='bg-gray-400 text-white' >
+        <Offcanvas show={show} onHide={handleClose} scroll={true} backdrop={true} className='offCanvas'>
+        <Offcanvas.Header closeButton className='bg-gradient-to-b from-gray-300 to-gray-400 text-white' >
           <Offcanvas.Title><span className='text-red-500'>70</span>-<span className='text-yellow-500'>20</span>-<span className='text-green-500'>10</span> Rule</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='bg-gradient-to-b from-blue-100 to-blue-200 opacity-80'>
@@ -27,7 +29,7 @@ function SeventyTwentyTen() {
         </Offcanvas.Body>
       </Offcanvas>
      
-      
+
     </> 
 
   )

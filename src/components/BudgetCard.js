@@ -1,8 +1,15 @@
 import React from 'react'
 import { Button, Card, ProgressBar, Stack } from 'react-bootstrap'
 import { currencyFormatter } from '../components/utility'
+import { useBudgets } from '../contexts/BudgetContexts'
 
-function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, onViewExpenseClick}) {
+import Badge from 'react-bootstrap/Badge';
+
+function BudgetCard({ name, amount, max, gray, onAddExpenseClick, hideButtons, onViewExpenseClick, budgetId }) {
+    const { getBudgetExpenses } = useBudgets()
+    const expenses = getBudgetExpenses(budgetId)
+
+    console.log(expenses)
     const className = []
     if(amount > max){
         className.push('bg-danger', 'bg-opacity-10')
@@ -30,8 +37,8 @@ function BudgetCard({name, amount, max, gray, onAddExpenseClick, hideButtons, on
                 />}
                 {!hideButtons &&
                     <Stack direction="horizontal" gap="2" className="mt-4">
-                        <Button  className='ms-auto bg-gradient-to-r from-red-400 to-red-600' onClick={onAddExpenseClick}> Expense</Button>
-                        <Button onClick={onViewExpenseClick} className='bg-gradient-to-r from-green-400 to-green-600'>View </Button>
+                        <Button  className='ms-auto bg-gradient-to-r from-red-400 to-red-600 hover:opacity-75' onClick={onAddExpenseClick}> Expense</Button>
+                        <Button onClick={onViewExpenseClick} className='bg-gradient-to-r from-green-400 to-green-600 hover:opacity-75'>View <Badge bg="secondary">{ expenses.length}</Badge> </Button>
                     </Stack>
                 }
 

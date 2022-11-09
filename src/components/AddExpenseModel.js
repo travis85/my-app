@@ -24,10 +24,10 @@ export default function AddExpenseModel({ show, handleClose, defaultBudgetId }) 
   return (
     <Modal show={ show } onHide={ handleClose }>
         <Form onSubmit={ handleSubmit}>
-            <Modal.Header closeButton>
+            <Modal.Header closeButton className='bg-gradient-to-b from-gray-300 to-gray-400 text-white'>
                 <Modal.Title>New Expense</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className='bg-gradient-to-r from-blue-100 to-blue-200'>
                 <Form.Group className='mb-3' controlId='description'>
                     <Form.Label>Description</Form.Label>
                     <Form.Control ref={descriptionRef} type="text" required />
@@ -49,7 +49,7 @@ export default function AddExpenseModel({ show, handleClose, defaultBudgetId }) 
                      
                 </Form.Group>
                 <div className="d-flex justify-content-end">
-                    <Button variant='primary' type='submit'>Add</Button>
+                    <Button className='bg-blue-600 hover:opacity-75' type='submit'>Add</Button>
 
                 </div>
             </Modal.Body>

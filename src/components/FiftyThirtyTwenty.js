@@ -9,11 +9,11 @@ function FiftyThirtyTwenty() {
 
   return (
     <>
-      <Button  onClick={toggleShow} className="bg-blue-600 hover:opacity-70">
+      <Button  onClick={toggleShow} className="bg-blue-600 w-36 mb-2 hover:opacity-70">
         <span className='text-yellow-500'>50</span>-<span className='text-green-500'>30</span>-<span className='text-red-500'>20</span> Rule
       </Button>
-      <Offcanvas show={show} onHide={handleClose} scroll={true} backdrop={true} className='w-75 '>
-        <Offcanvas.Header closeButton className='bg-gray-400 text-white'>
+      <Offcanvas show={show} onHide={handleClose} scroll={true} backdrop={true} className='offCanvas'>
+        <Offcanvas.Header closeButton className='bg-gradient-to-b from-gray-300 to-gray-400 text-white'>
           <Offcanvas.Title><span className='text-yellow-500'>50</span>-<span className='text-green-500'>30</span>-<span className='text-red-500'>20</span> Rule</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='bg-gradient-to-b from-blue-100 to-blue-200 opacity-80'>

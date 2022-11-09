@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.offCanvas{
+    width: 75% 
+}
+
+@media screen and (min-width: 400px) {
+    .offCanvas{
+        width: 30% 
+    }
+}
